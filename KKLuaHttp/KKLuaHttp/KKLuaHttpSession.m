@@ -11,6 +11,7 @@
 #import <CommonCrypto/CommonDigest.h>
 
 static int lua_http_send_function(lua_State * L);
+static int lua_http_cache_function(lua_State * L);
 
 @interface KKLuaSessionTask : KKLuaRef {
     NSMutableArray * _children;
@@ -88,10 +89,35 @@ static int lua_http_send_function(lua_State * L);
     }
 }
 
++(NSString *) cacheKeyWithURL:(NSString *) url {
+    CC_MD5_CTX md;
+    
+    CC_MD5_Init(&md);
+    
+    NSData * bytes = [url dataUsingEncoding:NSUTF8StringEncoding];
+    
+    CC_MD5_Update(&md, [bytes bytes], (CC_LONG) [bytes length]);
+    
+    unsigned char vs[16];
+    
+    CC_MD5_Final(vs, &md);
+    
+    return [NSString stringWithFormat:@"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x"
+            ,vs[0],vs[1],vs[2],vs[3],vs[4],vs[5],vs[6],vs[7]
+            ,vs[8],vs[9],vs[10],vs[11],vs[12],vs[13],vs[14],vs[15]];
+}
+
++(NSString *) cachePathWithURL:(NSString *) url {
+    return [self pathWithURI:[NSString stringWithFormat:@"cache:///kk/%@",[self cacheKeyWithURL:url]]];
+}
 
 -(int) KKLuaObjectGet:(NSString *)key L:(lua_State *)L {
     if([key isEqualToString:@"send"]) {
         lua_pushcfunction(L, lua_http_send_function);
+        return 1;
+    }
+    else if([key isEqualToString:@"cache"]) {
+        lua_pushcfunction(L, lua_http_cache_function);
         return 1;
     }
     else {
@@ -240,11 +266,14 @@ static int lua_http_send_function(lua_State * L);
         if([self.type isEqualToString:@"url"]) {
             
             if(lua_isstring(L, -1)) {
-                self.path = [self createPathWithURI:[NSString stringWithCString:lua_tostring(L, -1) encoding:NSUTF8StringEncoding]];
+                self.path =
+                self.path = [KKLuaHttpSession pathWithURI:[NSString stringWithCString:lua_tostring(L, -1) encoding:NSUTF8StringEncoding]];
+                [[NSFileManager defaultManager] createDirectoryAtPath:[self.path stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
             }
             else {
-                self.key = [self MD5String:url];
-                self.path = [self createPathWithURI:[NSString stringWithFormat:@"cache:///kk/%@",self.key]];
+                self.key = [KKLuaHttpSession cacheKeyWithURL:url];
+                self.path = [KKLuaHttpSession cachePathWithURL:url];
+                [[NSFileManager defaultManager] createDirectoryAtPath:[self.path stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
             }
             
             r = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:timeout];
@@ -256,8 +285,8 @@ static int lua_http_send_function(lua_State * L);
             NSFileManager * fm = [NSFileManager defaultManager];
             
             if([fm fileExistsAtPath:self.tpath]) {
-                size_t size = [[fm attributesOfItemAtPath:self.tpath error:nil] fileSize];
-                [r addValue:[NSString stringWithFormat:@"%ld-",size] forHTTPHeaderField:@"Range"];
+                unsigned long long size = [[fm attributesOfItemAtPath:self.tpath error:nil] fileSize];
+                [r addValue:[NSString stringWithFormat:@"%lld-",size] forHTTPHeaderField:@"Range"];
             }
             
         }
@@ -598,30 +627,6 @@ static int lua_http_send_function(lua_State * L);
     return [NSData dataWithContentsOfFile:[KKLuaHttpSession pathWithURI:uri]];
 }
 
--(NSString *) createPathWithURI:(NSString *) uri {
-    NSString * path = [KKLuaHttpSession pathWithURI:uri];
-    [[NSFileManager defaultManager] createDirectoryAtPath:[path stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
-    return path;
-}
-
--(NSString *) MD5String:(NSString *) v {
-    
-    CC_MD5_CTX md;
-    
-    CC_MD5_Init(&md);
-    
-    NSData * bytes = [v dataUsingEncoding:NSUTF8StringEncoding];
-    
-    CC_MD5_Update(&md, [bytes bytes], (CC_LONG) [bytes length]);
-    
-    unsigned char vs[16];
-    
-    CC_MD5_Final(vs, &md);
-    
-    return [NSString stringWithFormat:@"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x"
-            ,vs[0],vs[1],vs[2],vs[3],vs[4],vs[5],vs[6],vs[7]
-            ,vs[8],vs[9],vs[10],vs[11],vs[12],vs[13],vs[14],vs[15]];
-}
 
 @end
 
@@ -669,3 +674,33 @@ static int lua_http_send_function(lua_State * L) {
     
     return 0;
 }
+
+static int lua_http_cache_function(lua_State * L) {
+    
+    int top = lua_gettop(L);
+    
+    if(top > 0 && lua_isstring(L, - top)) {
+        
+        NSString * path = [KKLuaHttpSession cachePathWithURL:[NSString stringWithCString:lua_tostring(L, - top) encoding:NSUTF8StringEncoding]];
+        
+        lua_pushValue(L, path);
+        lua_pushboolean(L, [[NSFileManager defaultManager] fileExistsAtPath:path]);
+        
+        return 2;
+    }
+    
+    return 0;
+}
+
+
+@implementation KKLuaState(KKLuaHttpSession)
+
+-(void) openhttplibs {
+    
+    lua_pushObject(self.L, [[KKLuaHttpSession alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]);
+                        
+    lua_setglobal(self.L, "http");
+    
+}
+
+@end

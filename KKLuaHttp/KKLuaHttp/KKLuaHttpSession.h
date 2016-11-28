@@ -27,6 +27,8 @@
  * task = http:send(options)
  * task:cancel()
  *
+ * http.cache(url) -> path,isexist
+ *
  * uri -> path
  * document:///path     ->  ~/Documents/path
  * app:///path          ->  ~/path
@@ -38,5 +40,15 @@
 -(instancetype) initWithSessionConfiguration:(NSURLSessionConfiguration *) configuration;
 
 +(NSString *) pathWithURI:(NSString *) uri ;
+
++(NSString *) cachePathWithURL:(NSString *) url;
+
++(NSString *) cacheKeyWithURL:(NSString *) url;
+
+@end
+
+@interface KKLuaState (KKLuaHttpSession)
+
+-(void) openhttplibs;
 
 @end
