@@ -1,12 +1,12 @@
 //
-//  KKLuaHttpSession.h
+//  KKHttp+Lua.h
 //  KKLuaHttp
 //
-//  Created by zhanghailong on 2016/11/26.
+//  Created by zhanghailong on 2016/11/29.
 //  Copyright © 2016年 kkserver.cn. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <KKHttp/KKHttp.h>
 #import <KKLua/KKLua.h>
 
 /**
@@ -21,34 +21,23 @@
  *    onfail = function(err) end ,
  *    onprocess = function(value,maxValue) end,
  *    onresponse = function(response) end ,
- *    oncancel = function() end ,
- *    ondownload = function() end
  * }
- * task = http:send(options)
+ * task,err = http:send(options,weakObject)
  * task:cancel()
  *
- * http.cache(url) -> path,isexist
+ * http:cancel(weakObject)
+ *
+ * path,key,cached = http.cache(url)
  *
  * uri -> path
  * document:///path     ->  ~/Documents/path
  * app:///path          ->  ~/path
  * /path                ->  /path
  */
-
-@interface KKLuaHttpSession : NSObject
-
--(instancetype) initWithSessionConfiguration:(NSURLSessionConfiguration *) configuration;
-
-+(NSString *) pathWithURI:(NSString *) uri ;
-
-+(NSString *) cachePathWithURL:(NSString *) url;
-
-+(NSString *) cacheKeyWithURL:(NSString *) url;
+@interface KKHttp (Lua)
 
 @end
 
-@interface KKLuaState (KKLuaHttpSession)
-
--(void) openhttplibs;
+@interface KKHttpTask (Lua)
 
 @end

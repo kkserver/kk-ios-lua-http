@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <KKLuaHttp/KKLuaHttpSession.h>
-#import <KKLuaHttp/KKLuaHttpData.h>
-
+#import <KKLuaHttp/KKHttp+Lua.h>
+#import <KKLuaHttp/KKLuaState+Http.h>
 
 //! Project version number for KKLuaHttp.
 FOUNDATION_EXPORT double KKLuaHttpVersionNumber;
