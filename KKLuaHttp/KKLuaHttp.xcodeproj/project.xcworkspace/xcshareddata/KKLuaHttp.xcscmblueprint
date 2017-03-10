@@ -4,13 +4,17 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "1086C6E3FB17D79F1F2E7A33AA68FB29E7613BAE" : 9223372036854775807,
     "5FC579FAFFBBB428ECB77BD5EC0D24F2932857FA" : 9223372036854775807,
-    "1086C6E3FB17D79F1F2E7A33AA68FB29E7613BAE" : 9223372036854775807
+    "DF22ED11322278A87E78D8C604D53222D5B31951" : 9223372036854775807,
+    "E63A3219247E4990DD91A0DEE90CEC54951C87C4" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "4F6BC643-85FA-40D9-B93B-F63FE9DEB1F7",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "1086C6E3FB17D79F1F2E7A33AA68FB29E7613BAE" : "kk-ios-lua\/",
     "5FC579FAFFBBB428ECB77BD5EC0D24F2932857FA" : "kk-ios-lua-http\/",
-    "1086C6E3FB17D79F1F2E7A33AA68FB29E7613BAE" : "kk-ios-lua\/"
+    "DF22ED11322278A87E78D8C604D53222D5B31951" : "kk-ios-crypto\/",
+    "E63A3219247E4990DD91A0DEE90CEC54951C87C4" : "kk-ios-http\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "KKLuaHttp",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -25,6 +29,16 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kkserver\/kk-ios-lua-http.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5FC579FAFFBBB428ECB77BD5EC0D24F2932857FA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kkserver\/kk-ios-crypto.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DF22ED11322278A87E78D8C604D53222D5B31951"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kkserver\/kk-ios-http.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E63A3219247E4990DD91A0DEE90CEC54951C87C4"
     }
   ]
 }

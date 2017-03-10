@@ -11,57 +11,21 @@
 		AC69E2811DED446600A795D4 /* KKHttp+Lua.m in Sources */ = {isa = PBXBuildFile; fileRef = AC69E27F1DED446600A795D4 /* KKHttp+Lua.m */; };
 		AC69E2951DED52E800A795D4 /* KKLuaState+Http.h in Headers */ = {isa = PBXBuildFile; fileRef = AC69E2931DED52E800A795D4 /* KKLuaState+Http.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AC69E2961DED52E800A795D4 /* KKLuaState+Http.m in Sources */ = {isa = PBXBuildFile; fileRef = AC69E2941DED52E800A795D4 /* KKLuaState+Http.m */; };
+		AC7F326A1E72664C00868EE8 /* KKHttp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC7F32681E72664C00868EE8 /* KKHttp.framework */; };
+		AC7F326B1E72664C00868EE8 /* KKLua.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC7F32691E72664C00868EE8 /* KKLua.framework */; };
 		ACCDE4651DE9961900E6C255 /* KKLuaHttp.h in Headers */ = {isa = PBXBuildFile; fileRef = ACCDE4631DE9961900E6C255 /* KKLuaHttp.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		AC69E2781DED43FF00A795D4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AC69E2721DED43FF00A795D4 /* KKHttp.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = ACCDE5691DEBD8D500E6C255;
-			remoteInfo = KKHttp;
-		};
-		AC69E27A1DED43FF00A795D4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AC69E2721DED43FF00A795D4 /* KKHttp.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = AC37BBF51DED374C00AA0B68;
-			remoteInfo = KKHttpDemo;
-		};
-		AC69E27C1DED440E00A795D4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AC69E2721DED43FF00A795D4 /* KKHttp.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = ACCDE5681DEBD8D500E6C255;
-			remoteInfo = KKHttp;
-		};
-		ACCDE4731DE9965D00E6C255 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ACCDE46F1DE9965D00E6C255 /* KKLua.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = ACCDE3361DE93E7800E6C255;
-			remoteInfo = KKLua;
-		};
-		ACCDE4751DE9966400E6C255 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ACCDE46F1DE9965D00E6C255 /* KKLua.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = ACCDE3351DE93E7800E6C255;
-			remoteInfo = KKLua;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		AC69E2721DED43FF00A795D4 /* KKHttp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KKHttp.xcodeproj; path = "../../kk-ios-http/KKHttp/KKHttp.xcodeproj"; sourceTree = "<group>"; };
 		AC69E27E1DED446600A795D4 /* KKHttp+Lua.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KKHttp+Lua.h"; sourceTree = "<group>"; };
 		AC69E27F1DED446600A795D4 /* KKHttp+Lua.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KKHttp+Lua.m"; sourceTree = "<group>"; };
 		AC69E2931DED52E800A795D4 /* KKLuaState+Http.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KKLuaState+Http.h"; sourceTree = "<group>"; };
 		AC69E2941DED52E800A795D4 /* KKLuaState+Http.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KKLuaState+Http.m"; sourceTree = "<group>"; };
+		AC7F32681E72664C00868EE8 /* KKHttp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KKHttp.framework; path = ../../../../../../../Frameworks/KKHttp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC7F32691E72664C00868EE8 /* KKLua.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KKLua.framework; path = ../../../../../../../Frameworks/KKLua.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACCDE4601DE9961900E6C255 /* KKLuaHttp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KKLuaHttp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACCDE4631DE9961900E6C255 /* KKLuaHttp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKLuaHttp.h; sourceTree = "<group>"; };
 		ACCDE4641DE9961900E6C255 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ACCDE46F1DE9965D00E6C255 /* KKLua.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KKLua.xcodeproj; path = "../../kk-ios-lua/KKLua/KKLua.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,28 +33,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC7F326A1E72664C00868EE8 /* KKHttp.framework in Frameworks */,
+				AC7F326B1E72664C00868EE8 /* KKLua.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AC69E2731DED43FF00A795D4 /* Products */ = {
+		AC7F32671E72664C00868EE8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AC69E2791DED43FF00A795D4 /* KKHttp.framework */,
-				AC69E27B1DED43FF00A795D4 /* KKHttpDemo.app */,
+				AC7F32681E72664C00868EE8 /* KKHttp.framework */,
+				AC7F32691E72664C00868EE8 /* KKLua.framework */,
 			);
-			name = Products;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		ACCDE4561DE9961900E6C255 = {
 			isa = PBXGroup;
 			children = (
-				AC69E2721DED43FF00A795D4 /* KKHttp.xcodeproj */,
-				ACCDE46F1DE9965D00E6C255 /* KKLua.xcodeproj */,
 				ACCDE4621DE9961900E6C255 /* KKLuaHttp */,
 				ACCDE4611DE9961900E6C255 /* Products */,
+				AC7F32671E72664C00868EE8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,14 +78,6 @@
 				AC69E2941DED52E800A795D4 /* KKLuaState+Http.m */,
 			);
 			path = KKLuaHttp;
-			sourceTree = "<group>";
-		};
-		ACCDE4701DE9965D00E6C255 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				ACCDE4741DE9965D00E6C255 /* KKLua.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,8 +108,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				AC69E27D1DED440E00A795D4 /* PBXTargetDependency */,
-				ACCDE4761DE9966400E6C255 /* PBXTargetDependency */,
 			);
 			name = KKLuaHttp;
 			productName = KKLuaHttp;
@@ -186,46 +141,12 @@
 			mainGroup = ACCDE4561DE9961900E6C255;
 			productRefGroup = ACCDE4611DE9961900E6C255 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = AC69E2731DED43FF00A795D4 /* Products */;
-					ProjectRef = AC69E2721DED43FF00A795D4 /* KKHttp.xcodeproj */;
-				},
-				{
-					ProductGroup = ACCDE4701DE9965D00E6C255 /* Products */;
-					ProjectRef = ACCDE46F1DE9965D00E6C255 /* KKLua.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				ACCDE45F1DE9961900E6C255 /* KKLuaHttp */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		AC69E2791DED43FF00A795D4 /* KKHttp.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = KKHttp.framework;
-			remoteRef = AC69E2781DED43FF00A795D4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		AC69E27B1DED43FF00A795D4 /* KKHttpDemo.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = KKHttpDemo.app;
-			remoteRef = AC69E27A1DED43FF00A795D4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		ACCDE4741DE9965D00E6C255 /* KKLua.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = KKLua.framework;
-			remoteRef = ACCDE4731DE9965D00E6C255 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		ACCDE45E1DE9961900E6C255 /* Resources */ = {
@@ -248,19 +169,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		AC69E27D1DED440E00A795D4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = KKHttp;
-			targetProxy = AC69E27C1DED440E00A795D4 /* PBXContainerItemProxy */;
-		};
-		ACCDE4761DE9966400E6C255 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = KKLua;
-			targetProxy = ACCDE4751DE9966400E6C255 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		ACCDE4661DE9961900E6C255 /* Debug */ = {
@@ -375,6 +283,7 @@
 				INFOPLIST_FILE = KKLuaHttp/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.kkserver.KKLuaHttp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
