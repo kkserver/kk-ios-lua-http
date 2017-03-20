@@ -107,9 +107,9 @@ static int lua_http_send_function(lua_State * L) {
                         lua_pop(L, 1);
                     }
                     
+                } else {
+                    lua_pop(L, 1);
                 }
-                
-                lua_pop(L, 1);
                 
                 lua_pop(L, 1);
                 
