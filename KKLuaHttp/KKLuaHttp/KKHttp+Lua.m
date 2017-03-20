@@ -86,6 +86,8 @@ static int lua_http_send_function(lua_State * L) {
             
                 lua_State * L = [opt L];
                 
+                assert(lua_gettop(L) == 0);
+                
                 [opt get];
             
                 lua_pushstring(L, "onfail");
@@ -111,11 +113,15 @@ static int lua_http_send_function(lua_State * L) {
                 
                 lua_pop(L, 1);
                 
+                assert(lua_gettop(L) == 0);
+                
             };
             
             options.onLoad = ^(id data, NSError * error, id weakObject) {
                 
                 lua_State * L = [opt L];
+                
+                assert(lua_gettop(L) == 0);
                 
                 [opt get];
                 
@@ -138,17 +144,20 @@ static int lua_http_send_function(lua_State * L) {
                         lua_pop(L, 1);
                     }
                     
+                } else {
+                    lua_pop(L, 1);
                 }
                 
                 lua_pop(L, 1);
                 
-                lua_pop(L, 1);
-                
+                assert(lua_gettop(L) == 0);
             };
             
             options.onProcess = ^(int64_t value,int64_t maxValue, id weakObject) {
                 
                 lua_State * L = [opt L];
+                
+                assert(lua_gettop(L) == 0);
                 
                 [opt get];
                 
@@ -165,17 +174,21 @@ static int lua_http_send_function(lua_State * L) {
                         lua_pop(L, 1);
                     }
                     
+                } else {
+                    lua_pop(L, 1);
                 }
                 
                 lua_pop(L, 1);
                 
-                lua_pop(L, 1);
+                assert(lua_gettop(L) == 0);
                 
             };
             
             options.onResponse = ^(NSHTTPURLResponse * response, id weakObject) {
                 
                 lua_State * L = [opt L];
+                
+                assert(lua_gettop(L) == 0);
                 
                 [opt get];
                 
@@ -210,11 +223,13 @@ static int lua_http_send_function(lua_State * L) {
                         lua_pop(L, 1);
                     }
                     
+                } else {
+                    lua_pop(L, 1);
                 }
                 
                 lua_pop(L, 1);
                 
-                lua_pop(L, 1);
+                assert(lua_gettop(L) == 0);
                 
             };
             
